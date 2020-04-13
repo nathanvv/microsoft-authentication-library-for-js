@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { BroadcastService, MsalService } from '@azure/msal-angular';
-import { Logger, CryptoUtils } from 'msal';
+import { Logger, CryptoUtils, AuthenticationParameters } from 'msal';
 
 @Component({
   selector: 'app-root',
@@ -38,6 +38,24 @@ export class AppComponent implements OnInit {
       correlationId: CryptoUtils.createNewGuid(),
       piiLoggingEnabled: false
     }));
+
+    // const authParams: AuthenticationParameters = {
+    //   scopes: [
+    //     // '499b84ac-1321-427f-aa17-267ca6975798/.default',
+    //     // 'https://spsprodeus24.vssps.visualstudio.com/.default',
+    //     // '499b84ac-1321-427f-aa17-267ca6975798/user_impersonation',
+    //     'https://app.vssps.visualstudio.com/user_impersonation'
+    //   ]
+    // };
+
+    // this.authService.acquireTokenSilent(authParams).then((token) => {
+    //   if (token) {
+    //     console.log(token);
+    //   }
+    // }, (error) => {
+    //   const errorParts = error.split('|');
+    //   console.error('msal:loginFailure', errorParts[0], errorParts[1]);
+    // });
   }
 
   checkoutAccount() {
